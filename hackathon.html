@@ -1,0 +1,63 @@
+<html>
+<head></head>
+ <body>
+ <h1>Copy the Image!</h1>
+ 	
+ 	
+	<div style="width: 1200px; height: 1200px;">
+        	<div style="width: 50%; height: 500px; float: left;">
+        	<h4>Copy from this image!</h4> 
+			 <button onclick="document.getElementById('myImage').src='https://raw.githubusercontent.com/agranan/Images/main/Flower.jpeg'">Flower</button>
+	<button onclick="document.getElementById('myImage').src='https://raw.githubusercontent.com/agranan/Images/main/Frog.jpeg'">Frog</button>
+	<button onclick="document.getElementById('myImage').src='https://raw.githubusercontent.com/agranan/Images/main/duck.jpg'">Duck</button>
+            	<img src="https://raw.githubusercontent.com/agranan/Images/main/Flower.jpeg", id="myImage", height="500px", width="500px">
+            	
+        	</div>
+        	
+        	<div style="margin-left: 50%; height: 500px;"> 
+            		
+			<div>
+  				<h4 for="head">Pick a color from the panel below</h4>
+  				<input type="color" id="head" name="head" value="#e66465" />
+  		
+			</div>
+ 			<div id='container'></div>
+        	</div>
+    	</div>
+ </body>
+ 
+ <script>
+drawTable=function()
+{
+	for(var i = 1;i < 20; i++) 
+	{
+    		var row = document.createElement("div");
+    		for(var j = 1; j< 20; j++) 
+    		{
+        		var cell = document.createElement("div");
+        		cell.style.width = "25px";
+        		cell.style.height = "22px";
+        		cell.style.background = "lightgray";
+        		cell.style.display = "inline-block";
+        		cell.style.border = "solid";
+			    cell.style.borderWidth = "1px 2px 1px 2px";
+				cell.style.borderColor = "black";
+        		cell.id = i + "+" + j;
+        		cell.addEventListener("click", function(event) 
+        						{
+        						var currentCell = document.getElementById(event.target.id);
+        						//alert(event.target.id)
+        						var colorpicker = document.getElementById("head");
+        						currentCell.style.background = colorpicker.value;
+        						});
+        		
+        		row.appendChild(cell);
+    		}
+    		document.getElementById("container").appendChild(row);
+
+    
+	}
+}
+drawTable();
+</script>
+
